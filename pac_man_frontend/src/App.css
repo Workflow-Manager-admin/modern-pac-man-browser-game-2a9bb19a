@@ -27,6 +27,7 @@
   color: var(--text-primary);
   min-height: 100vh;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Trebuchet MS', 'Fira Mono', 'Press Start 2P', system-ui, monospace;
 }
 
 .App-logo {
@@ -100,5 +101,123 @@
     right: 10px;
     padding: 8px 16px;
     font-size: 12px;
+  }
+}
+
+/* Pac-Man Modern Styles */
+.game-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreboard {
+  font-family: 'Orbitron', 'Fira Mono', monospace, system-ui;
+  letter-spacing: 0.5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.game-board {
+  margin: 0 auto 12px auto;
+  box-sizing: border-box;
+  user-select: none;
+  outline: none;
+}
+
+.pac-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pac-tile.wall {
+  background: #22254A !important;
+  border: 2px solid #00AEEF;
+  border-radius: 6px;
+  z-index: 1;
+}
+
+.pac-tile.dot {
+  z-index: 1;
+}
+
+.pac-tile.energizer {
+  z-index: 1;
+}
+
+.pac-tile.house {
+  background: rgba(0,0,0,0.13);
+  border: 1px dashed #00AEEF;
+  border-radius: 5px;
+}
+
+.pac-tile.empty {
+}
+
+.game-overlay {
+  font-family: 'Press Start 2P', 'Orbitron', Arial, sans-serif;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px #fff8, 0 2px 12px #00aeef;
+  animation: popDown 0.25s;
+}
+
+@keyframes popDown {
+  from { transform: scale(0.9) translateY(-16px); opacity: 0.5;}
+  to   { transform: scale(1.0) translateY(0); opacity: 1;}
+}
+
+.control-btn {
+  font-size: 1.25em;
+  margin: 0 0.3em;
+  background: #00AEEF;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5em 1.44em;
+  box-shadow: 0 2px 7px #0002, 0 0 5px #0af2;
+  transition: background 0.16s, transform .12s;
+  outline: none;
+  cursor: pointer;
+}
+.control-btn:active {
+  background: #FCE205 !important;
+  color: #22254A !important;
+  transform: scale(0.97);
+}
+.control-btn:focus{
+  outline: 2px solid #FCE205;
+}
+
+/* Instructions style */
+.instructions {
+  font-family: 'Verdana', 'Fira Mono', 'Trebuchet MS', Arial, sans-serif;
+  background: #f8fafb;
+  margin: 0 auto 0 auto;
+  padding: 1.1rem 1.2rem 0.7rem 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 14px #00aeef22;
+  border: 1px solid #e7e9ff55;
+  font-size: 1.04em;
+  color: #22254A;
+}
+
+@media (max-width: 600px) {
+  .game-root {
+    font-size: 94%;
+  }
+  .game-board {
+    padding: 4px;
+    border-radius: 13px;
+    min-width: unset;
+    overflow-x: auto;
+    box-shadow: 0 4px 16px #22254a55;
+  }
+  .scoreboard, .instructions {
+    width: 98vw !important;
+    min-width: 0;
+    max-width: 100vw;
+    border-radius: 0.8rem;
+    padding: 0.7em 0.4em;
   }
 }
